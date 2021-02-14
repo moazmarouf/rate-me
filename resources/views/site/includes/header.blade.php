@@ -1,25 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <title>شعائر</title>
-    <link rel="shortcut icon" href="Site/img/logo.png" />
-    <link rel="stylesheet" href="Site/css/font-awesome-5all.css" />
-    <link rel="stylesheet" href="Site/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="Site/css/dataTables.bootstrap4.min.css">
-    <link rel="stylesheet" href="Site/css/owl.carousel.css" />
-    <link rel="stylesheet" href="Site/css/animate.css" />
-    <link rel="stylesheet" href="Site/css/style.css" />
-</head>
-
-<body>
 <div id="preloader">
     <div id="loader"></div>
 </div>
-<!-- header -->
+
 <header class="home-header">
     <div class="container-fluid">
         <div class="d-flex justify-content-between align-items-center">
@@ -100,7 +82,7 @@
                         </g>
                     </g>
                 </svg>
-                <img src="img/logo.png" alt="">
+                <img src="{{asset('Site/img/logo.png')}}" alt="">
             </div>
 
             <div class="user">
@@ -113,9 +95,8 @@
                 <div class="user-img user-drop">
 
                     <div class="dropdown">
-                        <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">
-                            <img src="img/user-img.png" alt="porfile">
+                        <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <img src="{{asset('Site/img/user-img.png')}}" alt="porfile">
                             <i class="fas fa-angle-down"></i>
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">

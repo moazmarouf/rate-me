@@ -45,4 +45,3 @@
 <script src="{{asset('Site/js/scripts.js')}}"></script>
 @yield('scripts')
 </html>
-

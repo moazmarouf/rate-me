@@ -65,11 +65,6 @@ $(window).on('load', function () {
     //     $(this).parents("tr").remove();
     // });
     $('#example_filter input').attr("placeholder", "كلمة البحث");
-    $(".add-row").click(function () {
-        var name = $("#name").val();
-        var markup = '<tr><td><input class="rocord-check" type="checkbox" name="record"></td><td>1</td><td>' + name + '</td><td><button type="button" class="edit">تعديل</button></td><td><button type="button" class="delete">حذف</button></td><td><i class="fas fa-ellipsis-h"></i></td></tr>';
-        $("table tbody").append(markup);
-    });
 
 
     // $('.delete-all').on('click',function(){

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCategoriesTable extends Migration
+class CreateAdditionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,12 @@ class CreateCategoriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('categories', function (Blueprint $table) {
+        Schema::create('additions', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->foreignIdFor(\App\Models\User::class)->onDelete('cascade');
+            $table->string('addition_name');
+            $table->double('addition_price');
+            $table->foreignIdFor(\App\Models\Product::class)->onDelete('cascade');
+
             $table->timestamps();
         });
     }
@@ -28,6 +30,6 @@ class CreateCategoriesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('categories');
+        Schema::dropIfExists('additions');
     }
 }

@@ -24,7 +24,7 @@
                     <a class="d-block text-center sign-link" href="{{route('register')}}">أنشاء حساب</a>
                 </form>
             </div>
-            <img class="building" src="Site/img/Group 3639.png" alt="">
+            <img class="building" src="{{asset('Site/img/Group 3639.png')}}" alt="">
         </div>
     </div>
 @stop

@@ -1,6 +1,10 @@
 <?php
 
 use App\Http\Controllers\Site\AuthController;
+use App\Http\Controllers\Site\CategoryController;
+use App\Http\Controllers\Site\MessageController;
+use App\Http\Controllers\Site\ProductController;
+use App\Http\Controllers\Site\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -34,6 +38,32 @@ Route::group(['namespace' => 'Site', 'middleware' => 'guest'], function () {
 Route::group(['namespace' => 'Site', 'middleware' => 'auth'], function () {
     Route::get('home', [AuthController::class, 'home'])->name('home');
     Route::get('logout', [AuthController::class, 'logout'])->name('logout');
+
+    Route::group(['prefix' => 'category'], function () {
+        Route::get('/',[CategoryController::class,'index'])->name('category.index');
+        Route::post('/category',[CategoryController::class,'create'])->name('category.create');
+
+        Route::post('/category/update/{id}',[CategoryController::class,'update'])->name('category.update');
+        Route::post('/category/delete/{id}',[CategoryController::class,'delete'])->name('category.delete');
+    });
+
+    Route::group(['prefix' => 'product'], function () {
+        Route::get('/',[ProductController::class,'index'])->name('product.index');
+        Route::post('/product',[ProductController::class,'create'])->name('product.create');
+
+        Route::post('/product/update/{id}',[ProductController::class,'update'])->name('product.update');
+        Route::post('/delete', [ProductController::class, 'delete'])->name('product.delete');
+
+
+    });
+
+    Route::group(['prefix' => 'profile'], function () {
+        Route::get('/',[ProfileController::class,'profile'])->name('profile');
+        Route::post('/',[ProfileController::class,'update'])->name('profile.update');
+    });
+    Route::group(['prefix' => 'message'], function () {
+        Route::get('/',[MessageController::class,'message'])->name('message');
+    });
 });
 
 
