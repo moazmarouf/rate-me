@@ -15,8 +15,8 @@ class CreateAdditionsTable extends Migration
     {
         Schema::create('additions', function (Blueprint $table) {
             $table->id();
-            $table->string('addition_name');
-            $table->double('addition_price');
+            $table->string('addition_name')->nullable();
+            $table->double('addition_price')->nullable();
             $table->foreignIdFor(\App\Models\Product::class)->onDelete('cascade');
 
             $table->timestamps();

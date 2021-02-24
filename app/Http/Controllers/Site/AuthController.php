@@ -13,7 +13,7 @@ class AuthController extends Controller
 {
     public function home()
     {
-        return view('layouts.site-master');
+        return view('site.home');
     }
 
     public function login()
@@ -101,7 +101,7 @@ class AuthController extends Controller
             $user->name = $request['name'];
             $user->email = $request['email'];
             $user->phone = $request['phone'];
-            $user->password = $request['password'];
+            $user->password = bcrypt($request['password']);;
             $user->commercial_register = $request['commercial_register'];
             $user->v_code = $v_code;
             $user->save();

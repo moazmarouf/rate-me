@@ -10,4 +10,8 @@
     <link rel="stylesheet" href="{{asset('Site/css/owl.carousel.css')}}" />
     <link rel="stylesheet" href="{{asset('Site/css/animate.css')}}" />
     <link rel="stylesheet" href="{{asset('Site/css/style.css')}}" />
+    @yield('style')
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.6.5/css/buttons.dataTables.min.css">
+
 </head>

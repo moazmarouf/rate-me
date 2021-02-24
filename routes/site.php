@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Dashboard\StoreController;
 use App\Http\Controllers\Site\AuthController;
 use App\Http\Controllers\Site\CategoryController;
 use App\Http\Controllers\Site\MessageController;
@@ -41,28 +42,41 @@ Route::group(['namespace' => 'Site', 'middleware' => 'auth'], function () {
 
     Route::group(['prefix' => 'category'], function () {
         Route::get('/',[CategoryController::class,'index'])->name('category.index');
-        Route::post('/category',[CategoryController::class,'create'])->name('category.create');
+        Route::post('/create',[CategoryController::class,'create'])->name('category.create');
+        Route::post('/update',[CategoryController::class,'update'])->name('category.update');
+        Route::post('/delete',[CategoryController::class,'delete'])->name('category.delete');
 
-        Route::post('/category/update/{id}',[CategoryController::class,'update'])->name('category.update');
-        Route::post('/category/delete/{id}',[CategoryController::class,'delete'])->name('category.delete');
     });
 
     Route::group(['prefix' => 'product'], function () {
         Route::get('/',[ProductController::class,'index'])->name('product.index');
-        Route::post('/product',[ProductController::class,'create'])->name('product.create');
+        Route::post('/create',[ProductController::class,'create'])->name('product.create');
 
-        Route::post('/product/update/{id}',[ProductController::class,'update'])->name('product.update');
+        Route::post('/product/update',[ProductController::class,'update'])->name('product.update');
         Route::post('/delete', [ProductController::class, 'delete'])->name('product.delete');
-
 
     });
 
     Route::group(['prefix' => 'profile'], function () {
         Route::get('/',[ProfileController::class,'profile'])->name('profile');
-        Route::post('/',[ProfileController::class,'update'])->name('profile.update');
+        Route::post('/update/',[ProfileController::class,'update'])->name('profile.update');
+        Route::post('/update/password',[ProfileController::class,'updatePassword'])->name('profile.password');
     });
-    Route::group(['prefix' => 'message'], function () {
-        Route::get('/',[MessageController::class,'message'])->name('message');
+
+
+
+    Route::group(['prefix' => 'company-info'], function () {
+    Route::get('/',[\App\Http\Controllers\Site\StoreController::class,'index'])->name('company-info.index');
+    Route::post('/create',[\App\Http\Controllers\Site\StoreController::class,'create'])->name('company-info.create');
+
+    Route::post('/update-stores',[\App\Http\Controllers\Site\StoreController::class,'updateStore'])->name('company-info.update.store');
+
+    Route::post('/update-stores-password',[\App\Http\Controllers\Site\StoreController::class,'updateStorePassword'])->name('store_password');
+
+    });
+        Route::group(['prefix' => 'message'], function () {
+        Route::get('/',[MessageController::class,'index'])->name('message');
+        Route::post('/message',[MessageController::class,'create'])->name('message.post');
     });
 });
 

@@ -1,5 +1,7 @@
 <?php
 
+use App\Exports\UsersExport;
+use App\Http\Controllers\UsersExportController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -12,4 +14,4 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::get('users/export',[UsersExportController::class,'export']);

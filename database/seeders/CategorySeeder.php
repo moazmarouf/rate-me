@@ -15,7 +15,19 @@ class CategorySeeder extends Seeder
     public function run()
     {
         Category::create([
-            'name' => 'مطعم',
+            'name' => 'المطاعم',
+            'user_id' => 1,
+        ]);
+        Category::create([
+            'name' => 'الصيدليات',
+            'user_id' => 1,
+        ]);
+        Category::create([
+            'name' => 'الكافيهات',
+            'user_id' => 1,
+        ]);
+        Category::create([
+            'name' => 'سوبر ماركت',
             'user_id' => 1,
         ]);
     }

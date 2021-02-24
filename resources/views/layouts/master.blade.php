@@ -150,7 +150,6 @@
         $(".alert").delay(3000).fadeOut(800);
     });
 </script>
-@yield('script')
 <script>
     $(document).ready( function () {
         $('#dtable').DataTable({
@@ -185,4 +184,5 @@
     });
 </script>
 </body>
+@yield('scripts')
 </html>

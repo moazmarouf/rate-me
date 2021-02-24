@@ -1,5 +1,5 @@
 <aside>
-    <div class="user-side">
+    <div class="user-side" style="padding-top: 45px">
         <div class="user-img">
             <img src="{{asset('Site/img/user-img.png')}}" alt="porfile">
         </div>
@@ -7,7 +7,7 @@
     </div>
     <ul>
         <li>
-            <a href="home.html">
+            <a href="{{route('home')}}">
                 <i class="fas fa-home"></i>
                 <span>الرئيسية</span>
             </a>
@@ -73,13 +73,13 @@
                     <a href="{{route('profile')}}"> الملف الشخصي</a>
                 </li>
                 <li>
-                    <a href="company-info.html">معلومات المتجر</a>
+                    <a href="{{route('company-info.index')}}">معلومات المتجر</a>
                 </li>
             </ul>
         </li>
 
         <li>
-            <a href="contact.html">
+            <a href="{{route('message')}}">
                 <i class="fas fa-phone-volume"></i>
                 <span>أتصل بنا</span>
             </a>

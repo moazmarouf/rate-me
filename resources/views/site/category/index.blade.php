@@ -23,7 +23,7 @@
 
                 </div>
                 <div class="table-responsive">
-                    <table id="example" class="table table-striped table-bordered" style="width:100%">
+                    <table id="" class="table table-striped table-bordered" style="width:100%">
                         <thead>
                         <tr>
                             <th></th>
@@ -31,25 +31,39 @@
                             <th>أسم المنيو</th>
                             <th>تعديل</th>
                             <th>خذف</th>
+                            <th></th>
                         </tr>
                         </thead>
                         <tbody>
+                        @foreach($categories as $category)
                         <tr>
-                            @foreach($categories as $category)
-                                <td><input class="rocord-check" type="checkbox"></td>
-                                <td>{{$category->id}}</td>
-                                <td>{{$category->name}}</td>
-                                <td>
-                                    <button type="submit" data-toggle="modal" data-target="#edit-sub">تعديل</button>
-                                </td>
-                                <td>
-                                    <button type="submit" data-toggle="modal" data-target="#delete-sub">حذف</button>
-                                </td>
+                            <td><input class="rocord-check" type="checkbox"></td>
+                            <td>{{$category->id}}</td>
+                            <td>{{$category->name}}</td>
+                            <td>
+                                <a href=""  data-toggle="modal" data-target="#edit-sub" type="button" class="openEditmodal"
+                                data-id="{{$category->id}}"
+                                data-name="{{$category->name}}"
+                                >
+                                    تعديل
+                                </a>
+                            <td>
+                                <a href=""  data-toggle="modal" data-target="#delete-sub" type="button" class="openDeletemodal"
+                                    data-id="{{$category->id}}"
+                                >
+                                    حذف
+                                </a>
+                            </td>
+                            <td>
+                                <a href=""  data-toggle="modal" data-target="#add-sub">
+                                    <i class="fas fa-ellipsis-h"></i>
+                                </a>
+                            </td>
                         </tr>
                         @endforeach
-
                         </tbody>
                     </table>
+
                 </div>
             </div>
         </div>
@@ -77,9 +91,10 @@
             <div class="modal-content">
                 <div class="modal-body">
                     <p>تعديل القسم الفرعي  </p>
-                    <form action="{{route('category.update',$category->id)}}" method="post">
+                    <form action="{{route('category.update')}}" method="post">
                         @csrf
-                        <input value="{{$category->name}}" name="name" type="text" class="form-control" placeholder="أسم الخدمة">
+                        <input type="hidden" value="" name="id">
+                        <input value="" name="name" type="text" class="form-control" placeholder="أسم الخدمة">
                         <input type="submit" class="add-row" value="update">
                     </form>
                 </div>
@@ -93,16 +108,45 @@
             <div class="modal-content">
                 <div class="modal-body">
                     <p>حذف القسم الفرعي  </p>
-                    <form action="{{route('category.delete',$category->id)}}" method="post">
+                    <form action="{{route('category.delete')}}" method="post">
                         @csrf
-                        <input name="name" type="text" value="{{$category->name}}" class="form-control" id="name" placeholder="أسم الخدمة">
-                        <input type="hidden" name="user_id" value="{{$category->id}}">
+                        <input type="hidden" name="id" value="">
+                        <span>هل انت متاكد من الحذف ؟</span>
                         <input type="submit" class="add-row" value="delete">
                     </form>
                 </div>
             </div>
         </div>
     </div>
+@stop
 
+@section('scripts')
+    <!--edit store  script-->
+    <script type="text/javascript">
+        $(document).on('click', '.openEditmodal', function () {
+            //get valus
+            var id = $(this).data('id');
+            var name = $(this).data('name');
+
+
+
+            //set values in modal inputs
+            $("input[name='id']").val(id);
+            $("input[name='name']").val(name);
+        })
+
+    </script>
+
+    <!-- end edit store  script-->
+    <!--  delete store  script-->
+    <script type="text/javascript">
+        $(document).on('click','.openDeletemodal',function(){
+            var id = $(this).data('id');
+
+            $("input[name='id']").val(id);
+        });
+    </script>
+    <!-- end  delete store  script-->
 
 @stop
+

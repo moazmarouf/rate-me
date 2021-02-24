@@ -20,7 +20,7 @@ class CreateProductsTable extends Migration
             $table->double('price');
             $table->text('meal_details')->nullable();
             $table->double('minimum')->nullable();
-
+            $table->string('image2')->nullable();
             $table->double('offer')->nullable();
             $table->foreignIdFor(\App\Models\Category::class)->onDelete('cascade');
             $table->timestamps();

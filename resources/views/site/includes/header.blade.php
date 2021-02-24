@@ -100,7 +100,7 @@
                             <i class="fas fa-angle-down"></i>
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="index.html">تسجيل خروج</a>
+                            <a class="dropdown-item" href="{{route('logout')}}">تسجيل خروج</a>
                         </div>
                     </div>
                 </div>

@@ -36,6 +36,20 @@
                         <a href=""><i class="fa fa-tachometer" aria-hidden="true"></i> <span>الرئيسيه</span></a>
                     </li>
 
+                    <li {{Request::is('admin/users*') ? 'class=active' :''}}>
+                        <a href="{{route('members.index')}}"><i class="fa fa-user" aria-hidden="true"></i> <span>المستخدمين</span></a>
+                    </li>
+
+
+                    <li {{Request::is('admin/stores*') ? 'class=active' :''}}>
+                        <a href="{{route('store.index')}}"><i class="fa fa-list" aria-hidden="true"></i> <span>المتاجر</span></a>
+                    </li>
+
+
+                    <li {{Request::is('admin/sliders*') ? 'class=active' :''}}>
+                        <a href="{{route('categories.index')}}"><i class="fa fa-list" aria-hidden="true"></i> <span>الأقسام الرئيسيه</span></a>
+                    </li>
+
                     <li {{Request::is('admin/settings*') ? 'class=active' :''}}>
                         <a href=""><i class="fa fa-cogs" aria-hidden="true"></i> <span>الاعدادات الرئيسيه</span></a>
                     </li>
@@ -45,25 +59,21 @@
                     </li>
 
                     <li {{Request::is('admin/complains*') ? 'class=active' :''}}>
-                        <a href=""><i class="icon-bubbles4" aria-hidden="true"></i> <span>الشكاوي والاقتراحات</span></a>
+                        <a href="{{route('complains')}}"><i class="icon-bubbles4" aria-hidden="true"></i> <span>الشكاوي والاقتراحات</span></a>
                     </li>
 
                     <li {{Request::is('admin/admins*') ? 'class=active' :''}}>
                         <a href=""><i class="fa fa-user-secret" aria-hidden="true"></i> <span>المديرين</span></a>
                     </li>
 
-                    <li {{Request::is('admin/users*') ? 'class=active' :''}}>
-                        <a href=""><i class="fa fa-user" aria-hidden="true"></i> <span>المستخدمين</span></a>
-                    </li>
-                    <li {{Request::is('admin/sliders*') ? 'class=active' :''}}>
-                        <a href=""><i class="fa fa-list" aria-hidden="true"></i> <span>الأقسام الرئيسيه</span></a>
-                    </li>
+
+
 
                     <li {{Request::is('admin/categories*') ? 'class=active' :''}}>
                         <a href=""><i class="fa fa-list" aria-hidden="true"></i> <span>المنيوهات</span></a>
                     </li>
 
-                    <li {{Request::is('admin/products*') ? 'class=active' :''}}>
+                    <li {{Request::is('admin/stores*') ? 'class=active' :''}}>
                         <a href=""><i class="fa fa-list" aria-hidden="true"></i> <span>المنتجات</span></a>
                     </li>
 

@@ -25,14 +25,31 @@
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                     <i class="icon-bubbles4"></i>
                     <span class="visible-xs-inline-block position-right">الرسائل</span>
-
+                    @if($unseenmessages->count() > 0)
+                        <span class="badgeseen badge bg-warning-400">{{$unseenmessages->count() }}</span>
+                    @endif
                 </a>
 
                 <div class="dropdown-menu dropdown-content width-350">
 
+                    <ul class="media-list dropdown-content-body">
+                        @foreach($latestmessages as $message)
+                            <li class="media">
+                                <div class="media-body">
+                                    <a href="#" class="media-heading">
+                                        <span class="text-semibold">{{$message->name}}</span>
+                                        <span
+                                            class="media-annotation pull-right">{{$message->created_at->diffForHumans()}}</span>
+                                    </a>
+                                    <span
+                                        class="text-muted">{{ ( strlen($message->content) > 120 ) ? substr($message->content, 0, 119) : $message->content}}</span>
+                                </div>
+                            </li>
+                        @endforeach
+                    </ul>
 
                     <div class="dropdown-content-footer">
-                        <a href="" data-popup="tooltip" title="جميع الرسائل"><i
+                        <a href="{{route('message.dashboard')}}" data-popup="tooltip" title="جميع الرسائل"><i
                                 class="icon-menu display-block"></i></a>
                     </div>
                 </div>
@@ -48,7 +65,7 @@
                 <ul class="dropdown-menu dropdown-menu-right">
                     <li><a href=""><i class="icon-user"></i>حسابي</a></li>
                     <li class="divider"></li>
-                    <li><a href=""><i class="icon-switch2"></i> تسجيل الخروج</a></li>
+                    <li><a href="{{route('admin.logout')}}"><i class="icon-switch2"></i> تسجيل الخروج</a></li>
                 </ul>
             </li>
         </ul>
